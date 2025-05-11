@@ -43,10 +43,10 @@ env = conv(abs(filtered), hamming(101), 'same');
 modulated = env .* cos(2*pi*f*t);
 
 ## How To Run 
-Clone this repo and install the Signal Processing Toolbox in Matlab
-Load the audio files and set up the folder directory and file name in main
-Add the src and audio_samples file to path for access
-Run from the command line by calling main 
+1) Clone this repo and install the Signal Processing Toolbox in Matlab
+2) Load the audio files and set up the folder directory and file name in main
+3) Add the src and audio_samples file to path for access
+4) Run from the command line by calling main 
 
 
 # Contributors
