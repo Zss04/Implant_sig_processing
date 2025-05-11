@@ -1,6 +1,7 @@
 fileName = 'MaleSpeaking.opus';
 folder = 'audio_samples\';
-[audioData, sampleFrequency] = audioread(fullfile(folder, fileName));
+fullfilepath = fullfile(folder, fileName);
+[audioData, sampleFrequency] = audioread(fullfilepath);
 
 % Convert stereo to mono if needed
 if size(audioData, 2) == 2
@@ -28,8 +29,14 @@ envelopes = envelope_extraction(rectified, sampleFrequency);
 modulated = amplitude_modulation(envelopes, filteredSignals);
 
 % Combine channels and normalize
-finalSignal = synthesize_output(modulated);
+finalSignal = synthesize_output(modulated, filteredSignals, envelopes);
 
 % Output final signal
 sound(finalSignal, sampleFrequency);
-audiowrite(['final_output_' fileName], finalSignal, sampleFrequency);
+outputFolder = 'audio_samples';
+if ~exist(outputFolder, 'dir')
+    mkdir(outputFolder);
+end
+outputFileName = fullfile(outputFolder, ['final_output_' fileName]);
+audiowrite(outputFileName, finalSignal, sampleFrequency);
+
