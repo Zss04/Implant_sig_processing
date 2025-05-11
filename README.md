@@ -24,7 +24,7 @@ This project reconstructs speech and sound signals using a biologically inspired
 ![Input vs Output](plots/Modulation.png)
 
 ### Enveloped Signals
-![Highest and Lowest Freq Plots](plots/Enveloped.png)
+![Highest and Lowest Freq Plots](plots/Eneveloped.png)
 
 
 ## 🛠 How It Works
